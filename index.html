@@ -1,0 +1,35 @@
+<html>
+    <head>
+<script src="js/angular.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="MainController">
+<form name="myForm">
+    
+    <input type="name" name="firstName" placeholder="Enter your first name" ng-model="firstName" required minlength="5">
+    <span style="color : red" ng-show="myForm.firstName.$error.minlength">Minimum Length = 5</span>
+    <span style="color :red" ng-show="myForm.firstName.$error.required">First name is Required</span>
+    <br><br>
+
+    <input type="name" name="lastName" placeholder="Enter your last name" ng-model="lastName" required minlength="4">
+    <span style ="color:red" ng-show="myForm.lastName.$error.minlength">Minimum Lenth = 4</span>
+    <span style="color:red" ng-show="myForm.lastName.$error.required">Last Name is Required</span>
+    <br><br>
+    <input type="email" name="email" ng-model="email" placeholder="Enter your email" required>
+    <span style = "color:red" ng-show = "myForm.email.$error.required">Email is Required</span>
+    <span style = "color:red" ng-show = "myForm.email.$error.email">Please Enter email in valid format</span>
+     
+    <br><br>
+    <button ng-click = reset()>Reset</button>
+    <button ng-disabled = "myForm.firstName.$invalid && myForm.firstName.$dirty || myForm.lastName.$invalid && myForm.lastName.$dirty || myForm.email.$invalid && myForm.email.$dirty" ng-click = submit()>Submit</button>
+</div>
+
+</form>
+
+
+
+<script src="js/app.js"></script>
+</body>
+
+</html>
